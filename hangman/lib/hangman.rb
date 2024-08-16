@@ -1,11 +1,12 @@
 class Hangman
-  attr_reader :word, :attempts_left, :guessed_letters
+  attr_reader :word, :attempts_left, :guessed_letters, :results
 
   def initialize(word)
     @word = word
     @attempts_left = 6
     @guessed_letters = []
     @correct_letters = []
+    @results = []
   end
 
   def display_word
@@ -13,14 +14,15 @@ class Hangman
   end
 
   def guess_letter(letter)
+    
     if @guessed_letters.include?(letter)
-      puts "Bạn đã đoán chữ này rồi."
+      @results << "Bạn đã đoán chữ '#{letter}' rồi."
     elsif @word.include?(letter)
       @correct_letters << letter
-      puts "Chính xác!"
+      @results << "Chính xác! Chữ '#{letter}' có trong từ."
     else
       @attempts_left -= 1
-      puts "Sai rồi!"
+      @results << "Sai rồi! Chữ '#{letter}' không có trong từ."
     end
     @guessed_letters << letter
   end

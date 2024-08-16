@@ -8,10 +8,13 @@ random_word = word_list.random_word
 
 game = Hangman.new(random_word)
 
-puts "Chào mừng đến với trò chơi Hangman!"
-puts "Từ cần đoán có #{random_word.length} chữ cái."
+
 
 until game.won? || game.lost?
+  system("cls")
+  puts "Chào mừng đến với trò chơi Hangman!"
+  puts "Từ cần đoán có #{random_word.length} chữ cái."
+  game.results.each { |result| puts result }
   puts "\n#{game.display_word}"
   puts "Bạn có #{game.attempts_left} lần đoán còn lại."
   print "Đoán một chữ cái: "
