@@ -1,11 +1,13 @@
 class Hangman
   attr_reader :word, :attempts_left, :guessed_letters, :results
+  # thêm cả trên này
 
   def initialize(word)
     @word = word
     @attempts_left = 6
     @guessed_letters = []
     @correct_letters = []
+    # tạo biến result để lưu kết quả dự đoán 
     @results = []
   end
 
